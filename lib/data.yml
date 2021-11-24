@@ -1,9 +1,22 @@
 ---
-- :person:
-    :name: Miyesier
-    :age: 29
-    :role: student
-- :person:
-    :name: Shagufta
-    :age: 28
-    :role: student
+---
+- :book:
+    :title: Lord of the flies
+    :author: William Golding
+  :available: true
+  :return_date: 
+- :book:
+    :title: Sweetbitter
+    :author: Stephanie Danler
+  :available: true
+  :return_date: 
+- :book:
+    :title: Tuesdays with Morrie
+    :author: Mitch Albom
+  :available: true
+  :return_date: 
+- :book:
+    :title: The Fault in Our Stars
+    :author: John Green
+  :available: true
+  :return_date: 
