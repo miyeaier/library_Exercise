@@ -1,0 +1,9 @@
+---
+- :person:
+    :name: 'Miyesier'
+    :age: 29
+    :role: 'student'
+- :person:
+    :name: 'Shagufta'
+    :age: 27
+    :role: 'student'
