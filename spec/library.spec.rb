@@ -1,5 +1,17 @@
 require "./lib/library.rb"
 
-describe Library do
-  subject { Library.new }
+RSpec.describe Library do
+  it "is expected to have a collection of books as an array" do
+    expect(subject.books).to be_instance_of Array
+  end
+
+  it "is expected to hold 4 books" do
+    expect(subject.books.size).to eq 4
+  end
+  
+  describe "a book" do
+    it "is expected to have a availibily status" do
+      expect(subject.books.first.keys).to include("available")
+    end
+  end
 end
