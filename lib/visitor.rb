@@ -1,3 +1,4 @@
-require'date'
-class Visitor 
-  end
+require "date"
+
+class Visitor
+end

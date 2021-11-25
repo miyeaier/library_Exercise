@@ -1,5 +1,5 @@
-require'./lib/library.rb'
+require "./lib/library.rb"
 
 describe Library do
-  subject{ Library.new}
-  end
+  subject { Library.new }
+end

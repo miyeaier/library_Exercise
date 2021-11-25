@@ -1,5 +1,5 @@
-require'./lib/visitor.rb'
+require "./lib/visitor.rb"
 
-describe Visitor do 
-  subject { Visitor.new}
-  end
+describe Visitor do
+  subject { Visitor.new }
+end
