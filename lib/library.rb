@@ -6,5 +6,8 @@ class Library
   def initialize
     @books = YAML.load_file("./lib/data.yml")
   end
-end
 
+  def search
+    
+  end
+end
