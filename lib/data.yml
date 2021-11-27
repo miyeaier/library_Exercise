@@ -12,8 +12,8 @@
 - :book:
     :title: Tuesdays with Morrie
     :author: Mitch Albom
-  available: false
-  return_date: '2021-12-27'
+  available: true
+  return_date: ''
 - :book:
     :title: The Fault in Our Stars
     :author: John Green

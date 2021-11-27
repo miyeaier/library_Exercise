@@ -18,7 +18,7 @@ class Library
     object["return_date"] = Date.today.next_month.strftime("%Y-%m-%d")
     #update the persons #book_shelf
     person.book_shelf.push(object)
-    File.open('./lib/data.yml','w'){|file| file.write(@books.to_yaml)}#w 意思是write acssas
+    File.open("./lib/data.yml", "w") { |file| file.write(@books.to_yaml) } #w 意思是write acssas
 
     #write to the yaml file
 

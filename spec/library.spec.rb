@@ -2,10 +2,10 @@ require "./lib/library.rb"
 
 RSpec.describe Library do
   after(:each)do
-    test_data = YAML.load('./spec/test_data.yml')
-    File.open('./lib/data.yaml','w'){|file| file.write(test_data)}
+    test_data = YAML.load_file('./spec/test_data.yml')
+    File.open('./lib/data.yml','w'){|file| file.write(test_data.to_yaml)}
   end
-  
+
   describe "instance methods" do
     it { is_expected.to respond_to(:books) }
     it { is_expected.to respond_to(:search) }
