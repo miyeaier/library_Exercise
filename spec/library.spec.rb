@@ -1,6 +1,11 @@
 require "./lib/library.rb"
 
 RSpec.describe Library do
+  after(:each)do
+    test_data = YAML.load('./spec/test_data.yml')
+    File.open('./lib/data.yaml','w'){|file| file.write(test_data)}
+  end
+  
   describe "instance methods" do
     it { is_expected.to respond_to(:books) }
     it { is_expected.to respond_to(:search) }
@@ -40,17 +45,45 @@ RSpec.describe Library do
     end
   end
   describe "#checkout" do
+    let(:person) { instance_double("Person", book_shelf: []) }
     before do
       @book = subject.search("Tuesdays with Morrie")
-      subject.checkout(@book,person)
+      subject.checkout(@book, person)
     end
     it "is expected to set availability to false" do
       expect(@book["available"]).to eq false
     end
     it "is expected to set return date to today + 30 days" do
-    expected_return_date = Date.today.next_month.strftime("%Y-%m-%d")
-    expect(@book['return_date']).to eq expected_return_date
+      expected_return_date = Date.today.next_month.strftime("%Y-%m-%d")
+      expect(@book["return_date"]).to eq expected_return_date
+    end
+    it "is expected to add book to persons book shelf" do
+      expect(person.book_shelf).to include @book
+    end
+
+    describe "the book in memory" do
+      before do
+        @book = subject.books.detect { |object| object[:book][:title] == "Tuesdays with Morrie" }
+      end
+      it "is expected ti be updeted with new availability" do
+        expect(@book["available"]).to eq false
+      end
+      it "is expected ti be updeted with new return date" do
+        expect(@book["return_date"]).to_not eq ""
+      end
+    end
+
+    describe "is storage" do
+      before do
+        books = YAML.load_file("./lib/data.yml")
+        @book = books.detect { |object| object[:book][:title] == "Tuesdays with Morrie" }
+      end
+      it "is expected ti be updeted with new availability" do
+        expect(@book["available"]).to eq false
+      end
+      it "is expected ti be updeted with new return date" do
+        expect(@book["return_date"]).to_not eq ""
+      end
     end
   end
 end
-
