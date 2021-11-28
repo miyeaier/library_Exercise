@@ -44,7 +44,7 @@ RSpec.describe Library do
       end
     end
   end
-  describe "#checkout" do
+  describe "#checkout" do #代表图书馆可以借书及状态
     let(:person) { instance_double("Person", book_shelf: []) }
     
     before do
@@ -76,7 +76,7 @@ RSpec.describe Library do
       end
     end
 
-    describe "is storage" do
+    describe "is storage" do #图书馆书的储存状态 上面上面借出去了所以下面是状态是false
       before do
         books = YAML.load_file("./lib/data.yml")
         @book = books.detect { |object| object[:book][:title] == "Tuesdays with Morrie" }
