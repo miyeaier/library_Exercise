@@ -46,13 +46,16 @@ RSpec.describe Library do
   end
   describe "#checkout" do
     let(:person) { instance_double("Person", book_shelf: []) }
+    
     before do
       @book = subject.search("Tuesdays with Morrie")
       subject.checkout(@book, person)
     end
+
     it "is expected to set availability to false" do
       expect(@book["available"]).to eq false
     end
+    
     it "is expected to set return date to today + 30 days" do
       expected_return_date = Date.today.next_month.strftime("%Y-%m-%d")
       expect(@book["return_date"]).to eq expected_return_date
