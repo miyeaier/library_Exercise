@@ -1,4 +1,4 @@
-require"./lib/visitor.rb"
+require "./lib/visitor.rb"
 
 describe Visitor do
   subject { described_class.new(name: "Miyesier") }

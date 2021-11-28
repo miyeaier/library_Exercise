@@ -1,5 +1,5 @@
 require "date"
-require 'pry'
+require "pry"
 
 class Book
   STANDARD_VALIDITY_MONTH = 1
